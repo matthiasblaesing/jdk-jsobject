@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.doppel-helix.netbeans.lib</groupId>
     <artifactId>jdk-jsobject</artifactId>
-    <version>25.0.3</version>
+    <version>25.0.3.1</version>
     <packaging>jar</packaging>
 
     <name>jdk-jsobject</name>
