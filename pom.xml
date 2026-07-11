@@ -116,11 +116,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>oss.sonatype.org</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>file://${project.basedir}/target/deploy</url>
         </snapshotRepository>
         <repository>
             <id>oss.sonatype.org</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>file://${project.basedir}/target/deploy</url>
         </repository>
     </distributionManagement>
 
@@ -151,6 +151,25 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.8.0</version>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/deploy.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
                 </plugins>
             </build>
         </profile>
